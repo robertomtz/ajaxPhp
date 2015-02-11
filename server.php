@@ -1,1 +1,3 @@
-server.php
+<?php
+echo time();
+?>

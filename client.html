@@ -1,1 +1,26 @@
+<html>
+  <head>
+    <script>
 
+      var timer = setInterval(function(){ pideInfo() }, 2000);
+
+      function pideInfo() {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                      var tiempo = document.createElement("h3");
+                      var valor = document.createTextNode(xmlhttp.responseText);
+                      tiempo.appendChild(valor);
+                      var body = document.getElementsByTagName("body");
+                      body[0].appendChild(tiempo);
+                  }
+              }
+              xmlhttp.open("GET", "server.php", true);
+              xmlhttp.send();
+        }
+    </script>
+  </head>
+  <body>
+    <h1>TIEMPOS:</h1>
+  </body>
+</html>
